@@ -608,7 +608,7 @@ function saveAdmin() {
 function loadConfig() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : { active: false, endDate: '' };
+    return raw ? JSON.parse(raw) : { active: true, endDate: '' };
   } catch(e) { return { active: false, endDate: '' }; }
 }
 
