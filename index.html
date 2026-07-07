@@ -16,185 +16,241 @@
     --gray: #888;
     --promo-red: #e53935;
     --promo-red-dark: #b71c1c;
+    --wa-green: #25d366;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: var(--dark);
-    color: var(--white);
-    font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
-  }
+  body { background: var(--dark); color: var(--white); font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
 
   .hero { position: relative; width: 100%; overflow: hidden; opacity: 0; animation: fadeIn 1s 0.2s forwards; }
   .hero img { width: 100%; display: block; object-fit: cover; }
 
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-  @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
-  @keyframes slideDown { from { opacity: 0; transform: translate(-50%,-60%); } to { opacity: 1; transform: translate(-50%,-50%); } }
+  @keyframes fadeIn { from{opacity:0}to{opacity:1} }
+  @keyframes pulse { 0%,100%{transform:scale(1)}50%{transform:scale(1.05)} }
+  @keyframes waPulse { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.5)}50%{box-shadow:0 4px 40px rgba(37,211,102,0.9)} }
+  @keyframes shimmer { 0%{background-position:-200% center}100%{background-position:200% center} }
+  @keyframes slideDown { from{opacity:0;transform:translate(-50%,-60%)}to{opacity:1;transform:translate(-50%,-50%)} }
 
-  .section-label { text-align: center; font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 8px; color: var(--gold); padding: 60px 0 10px; }
-  .section-divider { width: 60px; height: 1px; background: var(--gold); margin: 0 auto 50px; }
+  .section-label { text-align:center; font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:8px; color:var(--gold); padding:60px 0 10px; }
+  .section-divider { width:60px; height:1px; background:var(--gold); margin:0 auto 50px; }
 
   /* FEATURED */
-  .featured { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-  .featured-card { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 100px; background: var(--dark2); border: 1px solid rgba(184,151,42,0.2); overflow: hidden; }
-  .featured-card:nth-child(even) { direction: rtl; }
-  .featured-card:nth-child(even) > * { direction: ltr; }
-  .featured-card-img { background: #fff; display: flex; align-items: center; justify-content: center; padding: 40px; min-height: 550px; }
-  .featured-card-img img { max-height: 460px; max-width: 100%; object-fit: contain; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4)); }
-  .featured-card-info { padding: 50px 44px; display: flex; flex-direction: column; justify-content: center; background: var(--dark2); }
-  .featured-card-type { font-size: 11px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
-  .featured-card-name { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 5vw, 64px); line-height: 1; color: var(--white); margin-bottom: 6px; }
-  .featured-card-sub { font-family: 'Bebas Neue', sans-serif; font-size: clamp(18px, 2.5vw, 28px); color: var(--gold-light); margin-bottom: 24px; }
-  .scent-bars { margin-bottom: 32px; }
-  .scent-bar { display: flex; align-items: center; margin-bottom: 6px; gap: 10px; }
-  .scent-bar-fill { height: 22px; border-radius: 2px; display: flex; align-items: center; padding: 0 12px; font-size: 11px; font-weight: 600; letter-spacing: 1px; color: #fff; text-transform: uppercase; }
-  .prices-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(184,151,42,0.2); border: 1px solid rgba(184,151,42,0.2); }
-  .price-cell { background: var(--dark3); padding: 16px 10px; text-align: center; }
-  .price-ml { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--gold); display: block; }
-  .price-amount { font-weight: 900; font-size: 18px; color: var(--white); }
+  .featured { max-width:1100px; margin:0 auto; padding:0 20px; }
+  .featured-card { display:grid; grid-template-columns:1fr 1fr; gap:0; margin-bottom:100px; background:var(--dark2); border:1px solid rgba(184,151,42,0.2); overflow:hidden; }
+  .featured-card:nth-child(even) { direction:rtl; }
+  .featured-card:nth-child(even)>* { direction:ltr; }
+  .featured-card-img { background:#fff; display:flex; align-items:center; justify-content:center; padding:40px; min-height:550px; }
+  .featured-card-img img { max-height:460px; max-width:100%; object-fit:contain; filter:drop-shadow(0 20px 40px rgba(0,0,0,0.4)); }
+  .featured-card-info { padding:50px 44px; display:flex; flex-direction:column; justify-content:center; background:var(--dark2); }
+  .featured-card-type { font-size:11px; letter-spacing:5px; color:var(--gold); text-transform:uppercase; margin-bottom:10px; }
+  .featured-card-name { font-family:'Bebas Neue',sans-serif; font-size:clamp(36px,5vw,64px); line-height:1; color:var(--white); margin-bottom:6px; }
+  .featured-card-sub { font-family:'Bebas Neue',sans-serif; font-size:clamp(18px,2.5vw,28px); color:var(--gold-light); margin-bottom:24px; }
+  .scent-bars { margin-bottom:32px; }
+  .scent-bar { display:flex; align-items:center; margin-bottom:6px; gap:10px; }
+  .scent-bar-fill { height:22px; border-radius:2px; display:flex; align-items:center; padding:0 12px; font-size:11px; font-weight:600; letter-spacing:1px; color:#fff; text-transform:uppercase; }
+  .prices-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(184,151,42,0.2); border:1px solid rgba(184,151,42,0.2); }
+  .price-cell { background:var(--dark3); padding:16px 10px; text-align:center; }
+  .price-ml { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--gold); display:block; }
+  .price-amount { font-weight:900; font-size:18px; color:var(--white); }
 
   /* GRID */
-  .grid-bg { position: relative; padding: 60px 20px; }
-  .grid-bg-1 { background: linear-gradient(135deg, #0a0e1a 0%, #0d1520 100%); }
-  .grid-bg-2 { background: linear-gradient(135deg, #150a00 0%, #1a1000 100%); }
-  .grid-bg-3 { background: linear-gradient(135deg, #081a0a 0%, #0a1a10 100%); }
-  .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; justify-items: center; }
-  .grid-card { background: rgba(255,255,255,0.95); color: #111; border-radius: 16px; padding: 28px 24px 24px; width: 100%; max-width: 340px; text-align: center; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-  .grid-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(184,151,42,0.3); }
-  .grid-card img { height: 200px; object-fit: contain; margin-bottom: 14px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2)); }
-  .grid-card-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #111; margin-bottom: 14px; line-height: 1.1; }
-  .grid-prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
-  .grid-price-col { text-align: center; }
-  .grid-price-ml { font-weight: 700; font-size: 13px; color: #555; }
-  .grid-price-amt { font-weight: 900; font-size: 17px; color: #111; }
+  .grid-bg { position:relative; padding:60px 20px; }
+  .grid-bg-1 { background:linear-gradient(135deg,#0a0e1a 0%,#0d1520 100%); }
+  .grid-bg-2 { background:linear-gradient(135deg,#150a00 0%,#1a1000 100%); }
+  .grid-bg-3 { background:linear-gradient(135deg,#081a0a 0%,#0a1a10 100%); }
+  .grid-bg-4 { background:linear-gradient(135deg,#1a0a14 0%,#200d18 100%); }
+  .grid-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; max-width:1100px; margin:0 auto; justify-items:center; }
+  .grid-card { background:rgba(255,255,255,0.95); color:#111; border-radius:16px; padding:28px 24px 24px; width:100%; max-width:340px; text-align:center; position:relative; transition:transform 0.3s ease,box-shadow 0.3s ease; }
+  .grid-card:hover { transform:translateY(-6px); box-shadow:0 20px 60px rgba(184,151,42,0.3); }
+  .grid-card img { height:200px; object-fit:contain; margin-bottom:14px; filter:drop-shadow(0 4px 12px rgba(0,0,0,0.2)); }
+  .grid-card-name { font-family:'Bebas Neue',sans-serif; font-size:22px; color:#111; margin-bottom:14px; line-height:1.1; }
+  .grid-prices { display:grid; grid-template-columns:repeat(3,1fr); gap:4px; }
+  .grid-price-col { text-align:center; }
+  .grid-price-ml { font-weight:700; font-size:13px; color:#555; }
+  .grid-price-amt { font-weight:900; font-size:17px; color:#111; }
 
-  /* ══ PROMO ══ */
-  .promo-banner { max-width: 1100px; margin: 0 auto 40px; padding: 0 20px; display: none; }
-  .promo-banner.active { display: block; }
-  .promo-banner-inner { background: linear-gradient(135deg, #b71c1c 0%, #e53935 40%, #ff6f00 100%); border-radius: 16px; padding: 28px 36px; display: flex; align-items: center; justify-content: space-between; gap: 20px; position: relative; overflow: hidden; box-shadow: 0 8px 40px rgba(229,57,53,0.4); }
-  .promo-banner-inner::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); background-size: 200% 100%; animation: shimmer 2.5s infinite; }
-  .promo-banner-inner::after { content: '🔥'; position: absolute; right: -10px; top: -10px; font-size: 80px; opacity: 0.15; transform: rotate(15deg); }
-  .promo-banner-text { position: relative; }
-  .promo-banner-label { font-size: 11px; letter-spacing: 5px; font-weight: 700; color: rgba(255,255,255,0.8); text-transform: uppercase; margin-bottom: 4px; }
-  .promo-banner-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(26px, 4vw, 44px); color: #fff; line-height: 1; letter-spacing: 2px; }
-  .promo-banner-sub { font-size: 13px; color: rgba(255,255,255,0.85); margin-top: 6px; font-weight: 600; }
-  .promo-badge-big { background: #fff; color: var(--promo-red); font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 1; border-radius: 50%; width: 110px; height: 110px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; animation: pulse 2s ease-in-out infinite; box-shadow: 0 4px 20px rgba(0,0,0,0.3); position: relative; }
-  .promo-badge-big span { font-size: 16px; line-height: 1; margin-top: -4px; }
+  /* ══ PROMO ÁRABE ══ */
+  .promo-banner { max-width:1100px; margin:0 auto 40px; padding:0 20px; display:none; }
+  .promo-banner.active { display:block; }
+  .promo-banner-inner { background:linear-gradient(135deg,#b71c1c 0%,#e53935 40%,#ff6f00 100%); border-radius:16px; padding:28px 36px; display:flex; align-items:center; justify-content:space-between; gap:20px; position:relative; overflow:hidden; box-shadow:0 8px 40px rgba(229,57,53,0.4); }
+  .promo-banner-inner::before { content:''; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent); background-size:200% 100%; animation:shimmer 2.5s infinite; }
+  .promo-banner-inner::after { content:'🔥'; position:absolute; right:-10px; top:-10px; font-size:80px; opacity:0.15; transform:rotate(15deg); }
+  .promo-banner-text { position:relative; }
+  .promo-banner-label { font-size:11px; letter-spacing:5px; font-weight:700; color:rgba(255,255,255,0.8); text-transform:uppercase; margin-bottom:4px; }
+  .promo-banner-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(26px,4vw,44px); color:#fff; line-height:1; letter-spacing:2px; }
+  .promo-banner-sub { font-size:13px; color:rgba(255,255,255,0.85); margin-top:6px; font-weight:600; }
+  .promo-badge-big { background:#fff; color:var(--promo-red); font-family:'Bebas Neue',sans-serif; font-size:52px; line-height:1; border-radius:50%; width:110px; height:110px; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; animation:pulse 2s ease-in-out infinite; box-shadow:0 4px 20px rgba(0,0,0,0.3); position:relative; }
+  .promo-badge-big span { font-size:16px; line-height:1; margin-top:-4px; }
 
   /* Countdown */
-  .countdown-wrap { display: none; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
-  .countdown-unit { background: rgba(0,0,0,0.3); border-radius: 8px; padding: 8px 12px; text-align: center; min-width: 56px; }
-  .countdown-num { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: #fff; line-height: 1; display: block; }
-  .countdown-lbl { font-size: 9px; letter-spacing: 2px; color: rgba(255,255,255,0.7); text-transform: uppercase; }
-  .countdown-sep { font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: rgba(255,255,255,0.5); align-self: center; margin-bottom: 10px; }
+  .countdown-wrap { display:none; gap:10px; margin-top:14px; flex-wrap:wrap; }
+  .countdown-unit { background:rgba(0,0,0,0.3); border-radius:8px; padding:8px 12px; text-align:center; min-width:56px; }
+  .countdown-num { font-family:'Bebas Neue',sans-serif; font-size:30px; color:#fff; line-height:1; display:block; }
+  .countdown-lbl { font-size:9px; letter-spacing:2px; color:rgba(255,255,255,0.7); text-transform:uppercase; }
+  .countdown-sep { font-family:'Bebas Neue',sans-serif; font-size:26px; color:rgba(255,255,255,0.5); align-self:center; margin-bottom:10px; }
 
-  /* Badge en tarjeta */
-  .promo-badge { position: absolute; top: 12px; right: 12px; background: linear-gradient(135deg, var(--promo-red-dark), var(--promo-red)); color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 15px; padding: 5px 10px; border-radius: 6px; z-index: 10; letter-spacing: 1px; box-shadow: 0 2px 8px rgba(229,57,53,0.5); display: none; }
-  .promo-active .promo-badge { display: block; }
+  /* ══ DESCUENTOS POR PRODUCTO ══ */
+  .offer-badge { position:absolute; top:12px; right:12px; background:linear-gradient(135deg,var(--promo-red-dark),var(--promo-red)); color:#fff; font-family:'Bebas Neue',sans-serif; font-size:15px; padding:5px 10px; border-radius:6px; z-index:10; letter-spacing:1px; box-shadow:0 2px 8px rgba(229,57,53,0.5); display:none; }
+  .offer-active .offer-badge { display:block; }
+  .offer-price-original { font-weight:700; font-size:12px; color:#999; text-decoration:line-through; display:none; line-height:1.2; }
+  .offer-price-new { font-weight:900; font-size:17px; color:var(--promo-red); display:none; line-height:1.2; }
+  .offer-active .offer-price-original { display:block; }
+  .offer-active .offer-price-new { display:block; }
+  .offer-active .grid-price-amt { display:none; }
 
-  /* Precios */
-  .promo-price-original { font-weight: 700; font-size: 12px; color: #999; text-decoration: line-through; display: none; line-height: 1.2; }
-  .promo-price-new { font-weight: 900; font-size: 17px; color: var(--promo-red); display: none; line-height: 1.2; }
-  .promo-active .promo-price-original { display: block; }
-  .promo-active .promo-price-new { display: block; }
-  .promo-active .grid-price-amt { display: none; }
+  /* Árabe promo badge (usa la misma lógica) */
+  .promo-badge { position:absolute; top:12px; right:12px; background:linear-gradient(135deg,var(--promo-red-dark),var(--promo-red)); color:#fff; font-family:'Bebas Neue',sans-serif; font-size:15px; padding:5px 10px; border-radius:6px; z-index:10; letter-spacing:1px; box-shadow:0 2px 8px rgba(229,57,53,0.5); display:none; }
+  .promo-active .promo-badge { display:block; }
+  .promo-price-original { font-weight:700; font-size:12px; color:#999; text-decoration:line-through; display:none; line-height:1.2; }
+  .promo-price-new { font-weight:900; font-size:17px; color:var(--promo-red); display:none; line-height:1.2; }
+  .promo-active .promo-price-original { display:block; }
+  .promo-active .promo-price-new { display:block; }
+  .promo-active .grid-price-amt { display:none; }
+
+  /* ══ BOTÓN FLOTANTE WHATSAPP ══ */
+  .wa-float { position:fixed; bottom:28px; right:28px; z-index:8000; display:flex; align-items:center; gap:12px; }
+  .wa-btn { width:60px; height:60px; background:var(--wa-green); border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; animation:waPulse 2s ease-in-out infinite; box-shadow:0 4px 20px rgba(37,211,102,0.5); transition:transform 0.2s; }
+  .wa-btn:hover { transform:scale(1.1); }
+  .wa-btn svg { width:32px; height:32px; fill:#fff; }
+  .wa-tooltip { background:#111; color:#fff; padding:8px 14px; border-radius:20px; font-size:12px; font-weight:700; letter-spacing:1px; white-space:nowrap; border:1px solid rgba(37,211,102,0.3); opacity:0; transform:translateX(10px); transition:all 0.3s; pointer-events:none; }
+  .wa-float:hover .wa-tooltip { opacity:1; transform:translateX(0); }
 
   /* ══ ADMIN PANEL ══ */
-  #admin-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 9998; backdrop-filter: blur(4px); }
-  #admin-overlay.open { display: block; }
+  #admin-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:9998; backdrop-filter:blur(4px); }
+  #admin-overlay.open { display:block; }
+  #admin-panel { display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:9999; background:#111; border:1px solid rgba(184,151,42,0.4); border-radius:20px; padding:32px; width:480px; max-width:95vw; max-height:90vh; overflow-y:auto; box-shadow:0 30px 80px rgba(0,0,0,0.8); }
+  #admin-panel.open { display:block; animation:slideDown 0.3s ease forwards; }
+  .admin-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
+  .admin-title { font-family:'Bebas Neue',sans-serif; font-size:24px; letter-spacing:4px; color:var(--gold); }
+  .admin-close { background:none; border:1px solid rgba(255,255,255,0.2); color:#fff; width:32px; height:32px; border-radius:50%; cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center; transition:background 0.2s; flex-shrink:0; }
+  .admin-close:hover { background:rgba(255,255,255,0.1); }
+  .admin-section { border-top:1px solid rgba(184,151,42,0.2); padding-top:20px; margin-top:20px; }
+  .admin-section-title { font-family:'Bebas Neue',sans-serif; font-size:16px; letter-spacing:3px; color:var(--gold-light); margin-bottom:14px; }
+  .admin-row { margin-bottom:18px; }
+  .admin-label { font-size:11px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:8px; display:block; }
+  .toggle-wrap { display:flex; align-items:center; gap:14px; }
+  .toggle { position:relative; width:56px; height:28px; flex-shrink:0; }
+  .toggle input { opacity:0; width:0; height:0; }
+  .toggle-slider { position:absolute; inset:0; background:#333; border-radius:28px; cursor:pointer; transition:background 0.3s; }
+  .toggle-slider::before { content:''; position:absolute; left:3px; top:3px; width:22px; height:22px; background:#fff; border-radius:50%; transition:transform 0.3s; }
+  .toggle input:checked+.toggle-slider { background:var(--promo-red); }
+  .toggle input:checked+.toggle-slider::before { transform:translateX(28px); }
+  .toggle-status { font-weight:700; font-size:14px; color:var(--white); }
+  .admin-datetime { width:100%; background:#1a1a1a; border:1px solid rgba(184,151,42,0.3); border-radius:10px; padding:10px 14px; color:var(--white); font-family:'Montserrat',sans-serif; font-size:13px; outline:none; transition:border-color 0.2s; }
+  .admin-datetime:focus { border-color:var(--gold); }
+  .admin-datetime::-webkit-calendar-picker-indicator { filter:invert(1) opacity(0.5); cursor:pointer; }
+  .admin-hint { font-size:10px; color:#555; margin-top:5px; }
 
-  #admin-panel { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 9999; background: #111; border: 1px solid rgba(184,151,42,0.4); border-radius: 20px; padding: 36px; width: 430px; max-width: 95vw; box-shadow: 0 30px 80px rgba(0,0,0,0.8); }
-  #admin-panel.open { display: block; animation: slideDown 0.3s ease forwards; }
+  /* Tabla de ofertas por producto */
+  .offer-table { width:100%; border-collapse:collapse; font-size:12px; }
+  .offer-table th { background:#1a1a1a; color:var(--gold); padding:8px 10px; text-align:left; font-size:10px; letter-spacing:2px; text-transform:uppercase; }
+  .offer-table td { padding:8px 10px; border-bottom:1px solid rgba(255,255,255,0.05); color:var(--white); vertical-align:middle; }
+  .offer-table tr:hover td { background:rgba(255,255,255,0.03); }
+  .offer-pct-input { width:60px; background:#1a1a1a; border:1px solid rgba(184,151,42,0.3); border-radius:6px; padding:5px 8px; color:#fff; font-size:12px; text-align:center; outline:none; }
+  .offer-pct-input:focus { border-color:var(--gold); }
+  .offer-toggle-sm { position:relative; width:40px; height:22px; }
+  .offer-toggle-sm input { opacity:0; width:0; height:0; }
+  .offer-toggle-sm .slider { position:absolute; inset:0; background:#333; border-radius:22px; cursor:pointer; transition:background 0.3s; }
+  .offer-toggle-sm .slider::before { content:''; position:absolute; left:2px; top:2px; width:18px; height:18px; background:#fff; border-radius:50%; transition:transform 0.3s; }
+  .offer-toggle-sm input:checked+.slider { background:var(--promo-red); }
+  .offer-toggle-sm input:checked+.slider::before { transform:translateX(18px); }
 
-  .admin-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
-  .admin-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 4px; color: var(--gold); }
-  .admin-close { background: none; border: 1px solid rgba(255,255,255,0.2); color: #fff; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
-  .admin-close:hover { background: rgba(255,255,255,0.1); }
-
-  .admin-row { margin-bottom: 22px; }
-  .admin-label { font-size: 11px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; display: block; }
-
-  .toggle-wrap { display: flex; align-items: center; gap: 14px; }
-  .toggle { position: relative; width: 56px; height: 28px; flex-shrink: 0; }
-  .toggle input { opacity: 0; width: 0; height: 0; }
-  .toggle-slider { position: absolute; inset: 0; background: #333; border-radius: 28px; cursor: pointer; transition: background 0.3s; }
-  .toggle-slider::before { content: ''; position: absolute; left: 3px; top: 3px; width: 22px; height: 22px; background: #fff; border-radius: 50%; transition: transform 0.3s; }
-  .toggle input:checked + .toggle-slider { background: var(--promo-red); }
-  .toggle input:checked + .toggle-slider::before { transform: translateX(28px); }
-  .toggle-status { font-weight: 700; font-size: 15px; color: var(--white); }
-
-  .admin-datetime { width: 100%; background: #1a1a1a; border: 1px solid rgba(184,151,42,0.3); border-radius: 10px; padding: 12px 16px; color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 14px; outline: none; transition: border-color 0.2s; }
-  .admin-datetime:focus { border-color: var(--gold); }
-  .admin-datetime::-webkit-calendar-picker-indicator { filter: invert(1) opacity(0.5); cursor: pointer; }
-  .admin-hint { font-size: 11px; color: #555; margin-top: 6px; }
-
-  .admin-save { width: 100%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #000; border: none; border-radius: 10px; padding: 14px; font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 4px; cursor: pointer; margin-top: 8px; transition: opacity 0.2s; }
-  .admin-save:hover { opacity: 0.88; }
-  .admin-saved-msg { text-align: center; font-size: 12px; color: #4caf50; margin-top: 10px; min-height: 18px; transition: opacity 0.5s; }
-  .admin-shortcut-hint { text-align: center; font-size: 10px; color: #444; margin-top: 16px; letter-spacing: 1px; }
+  .admin-save { width:100%; background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:#000; border:none; border-radius:10px; padding:13px; font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:4px; cursor:pointer; margin-top:16px; transition:opacity 0.2s; }
+  .admin-save:hover { opacity:0.88; }
+  .admin-saved-msg { text-align:center; font-size:12px; color:#4caf50; margin-top:8px; min-height:16px; transition:opacity 0.5s; }
+  .admin-shortcut-hint { text-align:center; font-size:10px; color:#444; margin-top:14px; letter-spacing:1px; }
 
   /* CONTACTO */
-  .contact-section { position: relative; background: var(--dark); padding: 100px 20px; text-align: center; overflow: hidden; }
-  .contact-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(184,151,42,0.08) 0%, transparent 70%); }
-  .contact-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 12vw, 120px); letter-spacing: 15px; color: transparent; -webkit-text-stroke: 1px rgba(184,151,42,0.4); position: relative; line-height: 1; margin-bottom: 50px; }
-  .contact-items { display: flex; flex-direction: column; align-items: center; gap: 20px; position: relative; }
-  .contact-item { display: flex; align-items: center; gap: 16px; font-size: 20px; font-weight: 700; letter-spacing: 2px; color: var(--white); }
-  .contact-item a { color: var(--white); text-decoration: none; }
-  .contact-icon { width: 44px; height: 44px; background: rgba(184,151,42,0.15); border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; }
-  .footer-brand { margin-top: 60px; font-family: 'Bebas Neue', sans-serif; font-size: 13px; letter-spacing: 8px; color: rgba(184,151,42,0.4); position: relative; }
+  .contact-section { position:relative; background:var(--dark); padding:100px 20px; text-align:center; overflow:hidden; }
+  .contact-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center,rgba(184,151,42,0.08) 0%,transparent 70%); }
+  .contact-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(60px,12vw,120px); letter-spacing:15px; color:transparent; -webkit-text-stroke:1px rgba(184,151,42,0.4); position:relative; line-height:1; margin-bottom:50px; }
+  .contact-items { display:flex; flex-direction:column; align-items:center; gap:20px; position:relative; }
+  .contact-item { display:flex; align-items:center; gap:16px; font-size:20px; font-weight:700; letter-spacing:2px; color:var(--white); }
+  .contact-item a { color:var(--white); text-decoration:none; }
+  .contact-icon { width:44px; height:44px; background:rgba(184,151,42,0.15); border:1px solid var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; }
+  .footer-brand { margin-top:60px; font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:8px; color:rgba(184,151,42,0.4); position:relative; }
 
-  @media (max-width: 720px) {
-    .featured-card { grid-template-columns: 1fr; }
-    .featured-card:nth-child(even) { direction: ltr; }
-    .featured-card-img { min-height: 300px; padding: 30px; }
-    .featured-card-info { padding: 30px 24px; }
-    .promo-banner-inner { flex-direction: column; text-align: center; }
-    .countdown-wrap { justify-content: center; }
+  @media(max-width:720px){
+    .featured-card{grid-template-columns:1fr;}
+    .featured-card:nth-child(even){direction:ltr;}
+    .featured-card-img{min-height:300px;padding:30px;}
+    .featured-card-info{padding:30px 24px;}
+    .promo-banner-inner{flex-direction:column;text-align:center;}
+    .countdown-wrap{justify-content:center;}
+    .wa-float{bottom:20px;right:16px;}
   }
 </style>
 </head>
 <body>
 
-<!-- ADMIN -->
+<!-- ══ WHATSAPP FLOTANTE ══ -->
+<div class="wa-float">
+  <div class="wa-tooltip">Pedir ahora 💬</div>
+  <a class="wa-btn" href="https://wa.me/526691632920?text=Hola,%20me%20gustaría%20encargar%20un%20decant" target="_blank" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+</div>
+
+<!-- ══ ADMIN OVERLAY ══ -->
 <div id="admin-overlay"></div>
+
+<!-- ══ ADMIN PANEL ══ -->
 <div id="admin-panel">
   <div class="admin-header">
     <div class="admin-title">⚙ Panel Admin</div>
     <button class="admin-close" onclick="closeAdmin()">✕</button>
   </div>
 
-  <div class="admin-row">
-    <span class="admin-label">Promoción Fragancias Árabes</span>
-    <div class="toggle-wrap">
-      <label class="toggle">
-        <input type="checkbox" id="promo-toggle">
-        <span class="toggle-slider"></span>
-      </label>
-      <span class="toggle-status" id="toggle-status">Desactivada</span>
+  <!-- Promo árabe global -->
+  <div class="admin-section" style="border-top:none;padding-top:0;margin-top:0;">
+    <div class="admin-section-title">Promo Fragancias Árabes</div>
+    <div class="admin-row">
+      <span class="admin-label">Estado de la promoción</span>
+      <div class="toggle-wrap">
+        <label class="toggle"><input type="checkbox" id="promo-toggle"><span class="toggle-slider"></span></label>
+        <span class="toggle-status" id="toggle-status">Desactivada</span>
+      </div>
+    </div>
+    <div class="admin-row">
+      <span class="admin-label">Fecha y hora de fin</span>
+      <input type="datetime-local" id="promo-end" class="admin-datetime">
+      <div class="admin-hint">La promo se apaga automáticamente al expirar. Deja vacío para sin límite.</div>
     </div>
   </div>
 
-  <div class="admin-row">
-    <span class="admin-label">Fecha y hora de fin de la promo</span>
-    <input type="datetime-local" id="promo-end" class="admin-datetime">
-    <div class="admin-hint">El contador se oculta si no hay fecha. La promo se desactiva automáticamente al expirar.</div>
+  <!-- Ofertas por producto -->
+  <div class="admin-section">
+    <div class="admin-section-title">Ofertas por Producto</div>
+    <div class="admin-hint" style="color:#777;margin-bottom:12px;font-size:11px;">Activa y pon el % de descuento en cada producto que quieras. Se ve en todos los dispositivos al compartir el link con los parámetros.</div>
+    <table class="offer-table">
+      <thead><tr><th>Producto</th><th>% Desc.</th><th>Activo</th></tr></thead>
+      <tbody id="offer-rows">
+        <!-- Se genera con JS -->
+      </tbody>
+    </table>
+    <div class="admin-hint" style="margin-top:10px;">💡 Comparte el enlace del catálogo — los descuentos se guardan en la URL para que todos los vean.</div>
   </div>
 
-  <button class="admin-save" onclick="saveAdmin()">GUARDAR CAMBIOS</button>
+  <button class="admin-save" onclick="saveAdmin()">GUARDAR Y COMPARTIR</button>
   <div class="admin-saved-msg" id="saved-msg"></div>
+  <div id="share-url-wrap" style="display:none;margin-top:12px;">
+    <div class="admin-hint" style="color:#888;margin-bottom:6px;">Copia este enlace y compártelo:</div>
+    <div style="display:flex;gap:8px;">
+      <input id="share-url" readonly style="flex:1;background:#1a1a1a;border:1px solid rgba(184,151,42,0.3);border-radius:8px;padding:8px 10px;color:#fff;font-size:11px;outline:none;">
+      <button onclick="copyShareUrl()" style="background:var(--gold);border:none;border-radius:8px;padding:8px 12px;cursor:pointer;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1px;">COPIAR</button>
+    </div>
+  </div>
   <div class="admin-shortcut-hint">Ctrl + Shift + A — abrir / cerrar panel</div>
 </div>
 
-<!-- HERO -->
+<!-- ══ HERO ══ -->
 <section class="hero">
   <img src="banner.png" alt="Aroma y Balance — Catálogo de Decants">
 </section>
 
-<!-- FEATURED -->
+<!-- ══ FEATURED ══ -->
 <div class="section-label">EDICIÓN PREMIUM</div>
 <div class="section-divider"></div>
 <div class="featured">
@@ -284,15 +340,15 @@
       </div>
     </div>
   </div>
-
 </div>
 
-<!-- GRID 1 -->
+<!-- ══ GRID 1 — CLÁSICA ══ -->
 <div class="grid-bg grid-bg-1">
-  <div class="section-label" style="padding-top:0;">COLECCIÓN CLÁSICA</div>
+  <div class="section-label" style="padding-top:0;">FRAGANCIAS DE DISEÑADOR</div>
   <div class="section-divider"></div>
   <div class="grid-cards">
-    <div class="grid-card">
+    <div class="grid-card" data-pid="versace-eros">
+      <div class="offer-badge">🔥 OFF</div>
       <img src="5.png" alt="Versace Eros">
       <div style="background:#1a4a7a;border-radius:10px;padding:16px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:8px;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;">VERSACE</div>
@@ -300,12 +356,13 @@
       </div>
       <div class="grid-card-name">Versace Eros EDP</div>
       <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$79</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$139</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$249</div></div>
+        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$79</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$139</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$249</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
       </div>
     </div>
-    <div class="grid-card">
+    <div class="grid-card" data-pid="azzaro-wanted">
+      <div class="offer-badge">🔥 OFF</div>
       <img src="6.png" alt="The Most Wanted">
       <div style="background:#111;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;">AZZARO</div>
@@ -313,12 +370,13 @@
       </div>
       <div class="grid-card-name">The Most Wanted</div>
       <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$79</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$119</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$199</div></div>
+        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$79</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$119</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$199</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
       </div>
     </div>
-    <div class="grid-card">
+    <div class="grid-card" data-pid="dg-k">
+      <div class="offer-badge">🔥 OFF</div>
       <img src="7.png" alt="K Eau de Parfum">
       <div style="background:#0d2a4a;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:#c9a96e;">DOLCE&amp;GABBANA</div>
@@ -326,20 +384,19 @@
       </div>
       <div class="grid-card-name">K Eau de Parfum</div>
       <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$89</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$149</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$259</div></div>
+        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$89</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$149</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$259</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- GRID 2 -->
-<div class="grid-bg grid-bg-2">
-  <div class="section-label" style="padding-top:0;">FRAGANCIAS DE DISEÑADOR</div>
-  <div class="section-divider"></div>
+<!-- ══ GRID 2 — DISEÑADOR (continuación) ══ -->
+<div style="display:contents">
   <div class="grid-cards">
-    <div class="grid-card">
+    <div class="grid-card" data-pid="montblanc-legend">
+      <div class="offer-badge">🔥 OFF</div>
       <img src="8.png" alt="Legend">
       <div style="background:#5e5b5b;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#b1acac;letter-spacing:2px;">MONT BLANC</div>
@@ -347,12 +404,13 @@
       </div>
       <div class="grid-card-name">Legend Spirit EDT</div>
       <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$49</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$79</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$169</div></div>
+        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$49</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$79</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$169</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
       </div>
     </div>
-    <div class="grid-card">
+    <div class="grid-card" data-pid="halloween-manx">
+      <div class="offer-badge">🔥 OFF</div>
       <img src="9.png" alt="Hallowen">
       <div style="background:#0a1a2a;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:#fff;letter-spacing:2px;">HALLOWEEN</div>
@@ -360,12 +418,13 @@
       </div>
       <div class="grid-card-name">Hallowen Man X</div>
       <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$59</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$99</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$189</div></div>
+        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$59</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$99</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$189</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
       </div>
     </div>
-    <div class="grid-card">
+    <div class="grid-card" data-pid="versace-dylan">
+      <div class="offer-badge">🔥 OFF</div>
       <img src="10.png" alt="Dylan">
       <div style="background:#1a0d00;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:#c9a96e;letter-spacing:3px;">VERSACE</div>
@@ -373,12 +432,13 @@
       </div>
       <div class="grid-card-name">Dylan Blue</div>
       <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$79</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$139</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$249</div></div>
+        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$79</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$139</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$249</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
       </div>
     </div>
-    <div class="grid-card">
+    <div class="grid-card" data-pid="versace-flame">
+      <div class="offer-badge">🔥 OFF</div>
       <img src="11.png" alt="Versace Eros flame">
       <div style="background:#1a0808;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:16px;color:#c9a96e;letter-spacing:2px;">VERSACE</div>
@@ -386,12 +446,13 @@
       </div>
       <div class="grid-card-name">Versace Eros Flame</div>
       <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$79</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$139</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$249</div></div>
+        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$79</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$139</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$249</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
       </div>
     </div>
-    <div class="grid-card">
+    <div class="grid-card" data-pid="dior-sauvage">
+      <div class="offer-badge">🔥 OFF</div>
       <img src="12.png" alt="dior">
       <div style="background:#0d0d1a;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;letter-spacing:3px;">DIOR</div>
@@ -399,12 +460,13 @@
       </div>
       <div class="grid-card-name">Dior Sauvage</div>
       <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$119</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$179</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$329</div></div>
+        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$119</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$179</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$329</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
       </div>
     </div>
-    <div class="grid-card">
+    <div class="grid-card" data-pid="rabanne-invictus">
+      <div class="offer-badge">🔥 OFF</div>
       <img src="13.png" alt="Invictus">
       <div style="background:#050a1f;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#c9a96e;letter-spacing:2px;">RABANNE</div>
@@ -412,20 +474,101 @@
       </div>
       <div class="grid-card-name">Invictus Victory Elixir</div>
       <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$119</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$199</div></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$349</div></div>
+        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$119</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$179</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$329</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+      </div>
+    </div>
+    <div class="grid-card" data-pid="badboy-cobalt">
+      <div class="offer-badge">🔥 OFF</div>
+      <img src="25.png" alt="Bad Boy Cobalt">
+      <div style="background:#040d1a;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#4a9eff;letter-spacing:2px;">CAROLINA HERRERA</div>
+        <div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Bad Boy Cobalt</div>
+      </div>
+      <div class="grid-card-name">Bad Boy Cobalt</div>
+      <div class="grid-prices">
+        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$79</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$139</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$249</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- GRID 3 — ÁRABES -->
+<!-- ══ GRID 4 — DAMA ══ -->
+<div class="grid-bg grid-bg-4">
+  <div class="section-label" style="padding-top:0;">FRAGANCIAS PARA DAMA</div>
+  <div class="section-divider"></div>
+  <div class="grid-cards">
+
+    <div class="grid-card" data-pid="yara-lattafa">
+      <div class="offer-badge">🔥 OFF</div>
+      <img src="21.png" alt="Candee">
+      <div style="background:#1a1000;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#ff8c42;letter-spacing:2px;">ODYSSEY</div>
+        <div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Candee</div>
+      </div>
+      <div class="grid-card-name">Candee</div>
+      <div class="grid-prices">
+        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$39</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$59</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$109</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+      </div>
+    </div>
+
+    <div class="grid-card" data-pid="yara-lattafa">
+      <div class="offer-badge">🔥 OFF</div>
+      <img src="22.png" alt="Yara Lattafa">
+      <div style="background:#1a0a14;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#e8a0c0;letter-spacing:2px;">LATTAFA</div>
+        <div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Yara</div>
+      </div>
+      <div class="grid-card-name">Yara Lattafa</div>
+      <div class="grid-prices">
+        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$49</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$79</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$129</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+      </div>
+    </div>
+
+    <div class="grid-card" data-pid="good-girl">
+      <div class="offer-badge">🔥 OFF</div>
+      <img src="23.png" alt="Good Girl">
+      <div style="background:#0d0d0d;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#d4af37;letter-spacing:2px;">CAROLINA HERRERA</div>
+        <div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Good Girl</div>
+      </div>
+      <div class="grid-card-name">Good Girl</div>
+      <div class="grid-prices">
+        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$99</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$179</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$329</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+      </div>
+    </div>
+
+    <div class="grid-card" data-pid="cloud-ag">
+      <div class="offer-badge">🔥 OFF</div>
+      <img src="24.png" alt="Cloud">
+      <div style="background:#1a1a2e;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#c0d0f0;letter-spacing:2px;">ARIANA GRANDE</div>
+        <div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Cloud</div>
+      </div>
+      <div class="grid-card-name">Cloud</div>
+      <div class="grid-prices">
+        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$69</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$119</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$219</div><span class="offer-price-original"></span><span class="offer-price-new"></span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ GRID 3 — ÁRABES ══ -->
 <div class="grid-bg grid-bg-3">
   <div class="section-label" style="padding-top:0;">FRAGANCIAS ÁRABES</div>
   <div class="section-divider"></div>
-
-  <!-- BANNER PROMO -->
   <div class="promo-banner" id="promo-banner">
     <div class="promo-banner-inner">
       <div class="promo-banner-text">
@@ -445,118 +588,19 @@
       <div class="promo-badge-big">30%<span>OFF</span></div>
     </div>
   </div>
-
   <div class="grid-cards">
-
-    <div class="grid-card arabic-card">
-      <div class="promo-badge">🔥 30% OFF</div>
-      <img src="14.png" alt="SCEPTRE">
-      <div style="background:#0a1f0a;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#c9a96e;letter-spacing:2px;">SCEPTRE</div>
-        <div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Malachite</div>
-      </div>
-      <div class="grid-card-name">Sceptre Malachite</div>
-      <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$59</div><span class="promo-price-original">$59</span><span class="promo-price-new">$41</span></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$99</div><span class="promo-price-original">$99</span><span class="promo-price-new">$69</span></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$189</div><span class="promo-price-original">$189</span><span class="promo-price-new">$132</span></div>
-      </div>
-    </div>
-
-    <div class="grid-card arabic-card">
-      <div class="promo-badge">🔥 30% OFF</div>
-      <img src="15.png" alt="9PM">
-      <div style="background:#111;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;letter-spacing:4px;">9PM</div>
-        <div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Afnan</div>
-      </div>
-      <div class="grid-card-name">9PM Afnan</div>
-      <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$59</div><span class="promo-price-original">$59</span><span class="promo-price-new">$41</span></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$99</div><span class="promo-price-original">$99</span><span class="promo-price-new">$69</span></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$189</div><span class="promo-price-original">$189</span><span class="promo-price-new">$132</span></div>
-      </div>
-    </div>
-
-    <div class="grid-card arabic-card">
-      <div class="promo-badge">🔥 30% OFF</div>
-      <img src="16.png" alt="Fakhar">
-      <div style="background:#1a1a1a;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#c9a96e;letter-spacing:2px;">FAKHAR</div>
-        <div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Black</div>
-      </div>
-      <div class="grid-card-name">Fakhar Black</div>
-      <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$59</div><span class="promo-price-original">$59</span><span class="promo-price-new">$41</span></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$99</div><span class="promo-price-original">$99</span><span class="promo-price-new">$69</span></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$189</div><span class="promo-price-original">$189</span><span class="promo-price-new">$132</span></div>
-      </div>
-    </div>
-
-    <div class="grid-card arabic-card">
-      <div class="promo-badge">🔥 30% OFF</div>
-      <img src="17.png" alt="Mandarin">
-      <div style="background:#1a1000;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#ff8c42;letter-spacing:2px;">ODYSSEY</div>
-        <div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Mandarin Sky</div>
-      </div>
-      <div class="grid-card-name">Mandarin Sky</div>
-      <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$59</div><span class="promo-price-original">$59</span><span class="promo-price-new">$41</span></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$99</div><span class="promo-price-original">$99</span><span class="promo-price-new">$69</span></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$189</div><span class="promo-price-original">$189</span><span class="promo-price-new">$132</span></div>
-      </div>
-    </div>
-
-    <div class="grid-card arabic-card">
-      <div class="promo-badge">🔥 30% OFF</div>
-      <img src="18.png" alt="Khamrah">
-      <div style="background:#2a1a00;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#c9a96e;letter-spacing:2px;">LATTAFA</div>
-        <div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Khamrah Qahwa</div>
-      </div>
-      <div class="grid-card-name">Khamrah Qahwa</div>
-      <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$59</div><span class="promo-price-original">$59</span><span class="promo-price-new">$41</span></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$99</div><span class="promo-price-original">$99</span><span class="promo-price-new">$69</span></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$189</div><span class="promo-price-original">$189</span><span class="promo-price-new">$132</span></div>
-      </div>
-    </div>
-
-    <div class="grid-card arabic-card">
-      <div class="promo-badge">🔥 30% OFF</div>
-      <img src="19.png" alt="9am">
-      <div style="background:#098aaa;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#0d10c5;letter-spacing:2px;">AFNAN</div>
-        <div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">9am</div>
-      </div>
-      <div class="grid-card-name">9am</div>
-      <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$59</div><span class="promo-price-original">$59</span><span class="promo-price-new">$41</span></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$99</div><span class="promo-price-original">$99</span><span class="promo-price-new">$69</span></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$189</div><span class="promo-price-original">$189</span><span class="promo-price-new">$132</span></div>
-      </div>
-    </div>
-
-    <div class="grid-card arabic-card">
-      <div class="promo-badge">🔥 30% OFF</div>
-      <img src="20.png" alt="9pm night out">
-      <div style="background:#384244;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#0d0d11;letter-spacing:2px;">AFNAN</div>
-        <div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">9pm night out</div>
-      </div>
-      <div class="grid-card-name">9pm night out</div>
-      <div class="grid-prices">
-        <div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$89</div><span class="promo-price-original">$89</span><span class="promo-price-new">$62</span></div>
-        <div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$129</div><span class="promo-price-original">$129</span><span class="promo-price-new">$90</span></div>
-        <div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$219</div><span class="promo-price-original">$219</span><span class="promo-price-new">$153</span></div>
-      </div>
-    </div>
-
+    <div class="grid-card arabic-card"><div class="promo-badge">🔥 30% OFF</div><img src="14.png" alt="SCEPTRE"><div style="background:#0a1f0a;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;"><div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#c9a96e;letter-spacing:2px;">SCEPTRE</div><div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Malachite</div></div><div class="grid-card-name">Sceptre Malachite</div><div class="grid-prices"><div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$39</div><span class="promo-price-original">$59</span><span class="promo-price-new">$41</span></div><div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$59</div><span class="promo-price-original">$59</span><span class="promo-price-new">$69</span></div><div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$109</div><span class="promo-price-original">$109</span><span class="promo-price-new">$132</span></div></div></div>
+    <div class="grid-card arabic-card"><div class="promo-badge">🔥 30% OFF</div><img src="15.png" alt="9PM"><div style="background:#111;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;"><div style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;letter-spacing:4px;">9PM</div><div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Afnan</div></div><div class="grid-card-name">9PM Afnan</div><div class="grid-prices"><div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$39</div><span class="promo-price-original">$39</span><span class="promo-price-new">$41</span></div><div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$59</div><span class="promo-price-original">$59</span><span class="promo-price-new">$69</span></div><div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$109</div><span class="promo-price-original">$109</span><span class="promo-price-new">$132</span></div></div></div>
+    <div class="grid-card arabic-card"><div class="promo-badge">🔥 30% OFF</div><img src="16.png" alt="Fakhar"><div style="background:#1a1a1a;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;"><div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#c9a96e;letter-spacing:2px;">FAKHAR</div><div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Black</div></div><div class="grid-card-name">Fakhar Black</div><div class="grid-prices"><div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$39</div><span class="promo-price-original">$59</span><span class="promo-price-new">$41</span></div><div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$59</div><span class="promo-price-original">$59</span><span class="promo-price-new">$69</span></div><div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$109</div><span class="promo-price-original">$109</span><span class="promo-price-new">$132</span></div></div></div>
+    <div class="grid-card arabic-card"><div class="promo-badge">🔥 30% OFF</div><img src="17.png" alt="Mandarin"><div style="background:#1a1000;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;"><div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#ff8c42;letter-spacing:2px;">ODYSSEY</div><div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Mandarin Sky</div></div><div class="grid-card-name">Mandarin Sky</div><div class="grid-prices"><div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$39</div><span class="promo-price-original">$59</span><span class="promo-price-new">$41</span></div><div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$59</div><span class="promo-price-original">$59</span><span class="promo-price-new">$69</span></div><div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$109</div><span class="promo-price-original">$109</span><span class="promo-price-new">$132</span></div></div></div>
+    <div class="grid-card arabic-card"><div class="promo-badge">🔥 30% OFF</div><img src="18.png" alt="Khamrah"><div style="background:#2a1a00;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;"><div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#c9a96e;letter-spacing:2px;">LATTAFA</div><div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Khamrah Qahwa</div></div><div class="grid-card-name">Khamrah Qahwa</div><div class="grid-prices"><div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$49</div><span class="promo-price-original">$59</span><span class="promo-price-new">$41</span></div><div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$69</div><span class="promo-price-original">$69</span><span class="promo-price-new">$69</span></div><div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$119</div><span class="promo-price-original">$119</span><span class="promo-price-new">$132</span></div></div></div>
+    <div class="grid-card arabic-card"><div class="promo-badge">🔥 30% OFF</div><img src="19.png" alt="9am"><div style="background:#098aaa;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;"><div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#0d10c5;letter-spacing:2px;">AFNAN</div><div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">9am</div></div><div class="grid-card-name">9am</div><div class="grid-prices"><div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$49</div><span class="promo-price-original">$59</span><span class="promo-price-new">$41</span></div><div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$69</div><span class="promo-price-original">$69</span><span class="promo-price-new">$69</span></div><div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$119</div><span class="promo-price-original">$119</span><span class="promo-price-new">$132</span></div></div></div>
+    <div class="grid-card arabic-card"><div class="promo-badge">🔥 30% OFF</div><img src="26.png" alt="Oud for Glory Amethyst"><div style="background:#1a0d2a;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;"><div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#9b6dbd;letter-spacing:2px;">LATTAFA</div><div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">Oud for Glory Amethyst</div></div><div class="grid-card-name">Oud for Glory Amethyst</div><div class="grid-prices"><div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$39</div><span class="promo-price-original">$39</span><span class="promo-price-new">$27</span></div><div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$59</div><span class="promo-price-original">$59</span><span class="promo-price-new">$41</span></div><div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$109</div><span class="promo-price-original">$109</span><span class="promo-price-new">$76</span></div></div></div>
+    <div class="grid-card arabic-card"><div class="promo-badge">🔥 30% OFF</div><img src="20.png" alt="9pm night out"><div style="background:#384244;border-radius:10px;padding:16px;margin-bottom:12px;text-align:center;"><div style="font-family:'Bebas Neue',sans-serif;font-size:14px;color:#0d0d11;letter-spacing:2px;">AFNAN</div><div style="font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:2px;">9pm night out</div></div><div class="grid-card-name">9pm night out</div><div class="grid-prices"><div class="grid-price-col"><div class="grid-price-ml">3ml</div><div class="grid-price-amt">$69</div><span class="promo-price-original">$69</span><span class="promo-price-new">$62</span></div><div class="grid-price-col"><div class="grid-price-ml">5ml</div><div class="grid-price-amt">$109</div><span class="promo-price-original">$109</span><span class="promo-price-new">$90</span></div><div class="grid-price-col"><div class="grid-price-ml">10ml</div><div class="grid-price-amt">$199</div><span class="promo-price-original">$199</span><span class="promo-price-new">$153</span></div></div></div>
   </div>
 </div>
 
-<!-- CONTACTO -->
+<!-- ══ CONTACTO ══ -->
 <section class="contact-section">
   <div class="contact-title">CONTACTO</div>
   <div class="contact-items">
@@ -566,23 +610,68 @@
     </div>
     <div class="contact-item">
       <div class="contact-icon">📞</div>
-      <a href="https://wa.me/526691632920?text=Hola, me gustaria encargar un decant" target="_blank">669-163-2920</a>
-      <a href="https://wa.me/526691678727?text=Hola, me gustaria encargar un decant" target="_blank">669-167-8727</a>
+      <a href="https://wa.me/526691632920?text=Hola,%20me%20gustaría%20encargar%20un%20decant" target="_blank">669-163-2920</a>
+      <a href="https://wa.me/526691678727?text=Hola,%20me%20gustaría%20encargar%20un%20decant" target="_blank">669-167-8727</a>
     </div>
   </div>
   <div class="footer-brand">AROMA Y BALANCE • MAZATLÁN</div>
 </section>
 
 <script>
-const STORAGE_KEY = 'aromaybalance_promo';
+// ══════════════════════════════════════
+//  CATÁLOGO DE PRODUCTOS (pid → precios base)
+// ══════════════════════════════════════
+const PRODUCTS = {
+  'versace-eros':    { name:'Versace Eros EDP',        prices:[79,139,249] },
+  'azzaro-wanted':   { name:'Azzaro The Most Wanted',   prices:[79,119,199] },
+  'dg-k':            { name:'D&G K EDP',                prices:[89,149,259] },
+  'montblanc-legend':{ name:'Mont Blanc Legend Spirit', prices:[49,79,169]  },
+  'halloween-manx':  { name:'Halloween Man X',          prices:[59,99,189]  },
+  'versace-dylan':   { name:'Versace Dylan Blue',       prices:[79,139,249] },
+  'versace-flame':   { name:'Versace Eros Flame',       prices:[79,139,249] },
+  'dior-sauvage':    { name:'Dior Sauvage',             prices:[119,179,329]},
+  'rabanne-invictus':{ name:'Rabanne Invictus Victory', prices:[119,199,349]},
+  'badboy-cobalt':    { name:'Bad Boy Cobalt',         prices:[79,139,249] },
+  'mandarin-sky-w':  { name:'Candee',     prices:[59,99,189]  },
+  'yara-lattafa':    { name:'Yara Lattafa',             prices:[59,99,189]  },
+  'good-girl':       { name:'Good Girl',                prices:[59,99,189]  },
+  'cloud-ag':        { name:'Cloud Ariana Grande',      prices:[89,129,219] },
+};
+
+const STORAGE_KEY = 'ayb_cfg';
 let countdownInterval = null;
 
-// ── Admin panel ──
+// ══ URL params → estado inicial ══
+function readURLParams() {
+  const p = new URLSearchParams(location.search);
+  const cfg = { active: false, endDate: '', offers: {} };
+  if (p.get('promo') === '1') cfg.active = true;
+  if (p.get('end')) cfg.endDate = p.get('end');
+  for (const pid of Object.keys(PRODUCTS)) {
+    const pct = p.get('o_' + pid);
+    if (pct) cfg.offers[pid] = { active: true, pct: parseInt(pct) };
+  }
+  return cfg;
+}
+
+function buildShareURL(cfg) {
+  const p = new URLSearchParams();
+  if (cfg.active) p.set('promo','1');
+  if (cfg.endDate) p.set('end', cfg.endDate);
+  for (const [pid, o] of Object.entries(cfg.offers || {})) {
+    if (o.active && o.pct > 0) p.set('o_' + pid, o.pct);
+  }
+  const qs = p.toString();
+  return location.origin + location.pathname + (qs ? '?' + qs : '');
+}
+
+// ══ Admin panel ══
 function openAdmin() {
-  const cfg = loadConfig();
+  const cfg = readURLParams();
   document.getElementById('promo-toggle').checked = cfg.active;
   document.getElementById('toggle-status').textContent = cfg.active ? 'Activada ✓' : 'Desactivada';
   if (cfg.endDate) document.getElementById('promo-end').value = cfg.endDate;
+  buildOfferRows(cfg);
   document.getElementById('admin-panel').classList.add('open');
   document.getElementById('admin-overlay').classList.add('open');
 }
@@ -592,50 +681,104 @@ function closeAdmin() {
   document.getElementById('admin-overlay').classList.remove('open');
 }
 
+function buildOfferRows(cfg) {
+  const tbody = document.getElementById('offer-rows');
+  tbody.innerHTML = '';
+  for (const [pid, prod] of Object.entries(PRODUCTS)) {
+    const o = cfg.offers[pid] || { active: false, pct: 0 };
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td style="font-size:11px;">${prod.name}</td>
+      <td><input class="offer-pct-input" type="number" min="1" max="99" value="${o.pct||0}" id="pct_${pid}"> %</td>
+      <td>
+        <label class="offer-toggle-sm">
+          <input type="checkbox" id="chk_${pid}" ${o.active?'checked':''}>
+          <span class="slider"></span>
+        </label>
+      </td>`;
+    tbody.appendChild(tr);
+  }
+}
+
 function saveAdmin() {
   const active = document.getElementById('promo-toggle').checked;
   const endDate = document.getElementById('promo-end').value;
-  const cfg = { active, endDate };
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(cfg));
-  applyPromo(cfg);
-  startCountdown(cfg);
-  const msg = document.getElementById('saved-msg');
-  msg.textContent = '✓ Cambios guardados correctamente';
-  msg.style.opacity = '1';
-  setTimeout(() => { msg.style.opacity = '0'; }, 2500);
-}
-
-function loadConfig() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : { active: true, endDate: '' };
-  } catch(e) { return { active: false, endDate: '' }; }
-}
-
-function applyPromo(cfg) {
-  const isActive = cfg.active;
-  document.getElementById('promo-banner').classList.toggle('active', isActive);
-  document.querySelectorAll('.arabic-card').forEach(c => c.classList.toggle('promo-active', isActive));
-  const cdWrap = document.getElementById('countdown-wrap');
-  cdWrap.style.display = (isActive && cfg.endDate) ? 'flex' : 'none';
-}
-
-// ── Countdown ──
-function updateCountdown(endDateStr) {
-  const end = new Date(endDateStr).getTime();
-  const diff = end - Date.now();
-  if (diff <= 0) {
-    clearInterval(countdownInterval);
-    const cfg = loadConfig();
-    cfg.active = false;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(cfg));
-    applyPromo(cfg);
-    return;
+  const offers = {};
+  for (const pid of Object.keys(PRODUCTS)) {
+    const chk = document.getElementById('chk_' + pid);
+    const pct = parseInt(document.getElementById('pct_' + pid).value) || 0;
+    if (chk && chk.checked && pct > 0) offers[pid] = { active: true, pct };
   }
-  const d = Math.floor(diff / 86400000);
-  const h = Math.floor((diff % 86400000) / 3600000);
-  const m = Math.floor((diff % 3600000) / 60000);
-  const s = Math.floor((diff % 60000) / 1000);
+  const cfg = { active, endDate, offers };
+  const url = buildShareURL(cfg);
+
+  // Mostrar URL para compartir
+  document.getElementById('share-url-wrap').style.display = 'block';
+  document.getElementById('share-url').value = url;
+
+  // Aplicar en esta ventana
+  applyAll(cfg);
+  startCountdown(cfg);
+
+  const msg = document.getElementById('saved-msg');
+  msg.textContent = '✓ Copia el enlace y compártelo con tus clientes';
+  msg.style.opacity = '1';
+  setTimeout(() => { msg.style.opacity = '0'; }, 4000);
+}
+
+function copyShareUrl() {
+  const inp = document.getElementById('share-url');
+  inp.select();
+  document.execCommand('copy');
+  const btn = inp.nextElementSibling;
+  btn.textContent = '✓ COPIADO';
+  setTimeout(() => btn.textContent = 'COPIAR', 2000);
+}
+
+// ══ Aplicar promo árabe ══
+function applyArabicPromo(active) {
+  document.getElementById('promo-banner').classList.toggle('active', active);
+  document.querySelectorAll('.arabic-card').forEach(c => c.classList.toggle('promo-active', active));
+}
+
+// ══ Aplicar ofertas por producto ══
+function applyOffers(offers) {
+  document.querySelectorAll('[data-pid]').forEach(card => {
+    const pid = card.dataset.pid;
+    const prod = PRODUCTS[pid];
+    const o = offers[pid];
+    const badge = card.querySelector('.offer-badge');
+    const origEls = card.querySelectorAll('.offer-price-original');
+    const newEls  = card.querySelectorAll('.offer-price-new');
+    const amtEls  = card.querySelectorAll('.grid-price-amt');
+
+    if (o && o.active && o.pct > 0 && prod) {
+      card.classList.add('offer-active');
+      if (badge) badge.textContent = `🔥 ${o.pct}% OFF`;
+      prod.prices.forEach((p, i) => {
+        const desc = Math.round(p * (1 - o.pct / 100));
+        if (origEls[i]) origEls[i].textContent = `$${p}`;
+        if (newEls[i])  newEls[i].textContent  = `$${desc}`;
+      });
+    } else {
+      card.classList.remove('offer-active');
+    }
+  });
+}
+
+function applyAll(cfg) {
+  applyArabicPromo(cfg.active);
+  applyOffers(cfg.offers || {});
+  const cdWrap = document.getElementById('countdown-wrap');
+  cdWrap.style.display = (cfg.active && cfg.endDate) ? 'flex' : 'none';
+}
+
+// ══ Countdown ══
+function updateCountdown(endDateStr) {
+  const diff = new Date(endDateStr).getTime() - Date.now();
+  if (diff <= 0) { clearInterval(countdownInterval); applyArabicPromo(false); return; }
+  const d=Math.floor(diff/86400000), h=Math.floor((diff%86400000)/3600000),
+        m=Math.floor((diff%3600000)/60000), s=Math.floor((diff%60000)/1000);
   document.getElementById('cd-days').textContent  = String(d).padStart(2,'0');
   document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
   document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
@@ -650,26 +793,24 @@ function startCountdown(cfg) {
   }
 }
 
-// ── Toggle label en tiempo real ──
+// ══ Toggle label ══
 document.getElementById('promo-toggle').addEventListener('change', function() {
   document.getElementById('toggle-status').textContent = this.checked ? 'Activada ✓' : 'Desactivada';
 });
 
-// ── Overlay cierra panel ──
 document.getElementById('admin-overlay').addEventListener('click', closeAdmin);
 
-// ── Atajo Ctrl+Shift+A ──
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', e => {
   if (e.ctrlKey && e.shiftKey && e.key === 'A') {
     e.preventDefault();
     document.getElementById('admin-panel').classList.contains('open') ? closeAdmin() : openAdmin();
   }
 });
 
-// ── Inicialización ──
-const cfg = loadConfig();
-applyPromo(cfg);
-startCountdown(cfg);
+// ══ Inicializar desde URL ══
+const initCfg = readURLParams();
+applyAll(initCfg);
+startCountdown(initCfg);
 </script>
 </body>
 </html>
