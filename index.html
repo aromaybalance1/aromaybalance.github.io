@@ -741,7 +741,12 @@ async function loadCfgFromCloud() {
     });
     if (res.ok) {
       const data = await res.json();
-      if (data && data.record) return data.record;
+      const record = (data && data.record) ? data.record : {};
+      return {
+        active: !!record.active,
+        endDate: record.endDate || '',
+        offers: record.offers || {}
+      };
     }
   } catch (e) { console.warn('No se pudo cargar la configuración remota:', e); }
   return { active: false, endDate: '', offers: {} };
@@ -795,8 +800,9 @@ function closeAdmin() {
 function buildOfferRows(cfg) {
   const tbody = document.getElementById('offer-rows');
   tbody.innerHTML = '';
+  const offers = (cfg && cfg.offers) ? cfg.offers : {};
   for (const [pid, prod] of Object.entries(PRODUCTS)) {
-    const o = cfg.offers[pid] || { active: false, pct: 0 };
+    const o = offers[pid] || { active: false, pct: 0 };
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td style="font-size:11px;">${prod.name}</td>
